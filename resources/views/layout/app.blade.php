@@ -17,6 +17,8 @@
         <link rel="stylesheet" href="http://bootswatch.com/lumen/bootstrap.min.css">
        
     </head>
+
+    <title>@yield('title')</title>
     <body>
     <nav class="navbar navbar-default">
   <div class="container">
@@ -36,7 +38,7 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li> <a href="./create"><button class="btn btn-info">Add New</button></a></li>
+        <li> <a href="/todo/create"><button class="btn btn-info">Add New</button></a></li>
       </ul>
     </div>
   </div>

@@ -66,9 +66,13 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Todo $todo)
-    {
-        return view('todo.edit',compact('todo'));
+    public function edit($id)
+    {  
+        
+        $todo = todo::find($id) ;
+         return view('todo.edit',compact('todo'));
+       
+       
     }
 
     /**
@@ -80,7 +84,18 @@ class TodoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $todo = todo::find($id);
+        $this->validate($request,[
+            'todo_title' => 'required',
+            'todo_content' =>'required',
+        ]);
+        $todo->todo_title = $request->todo_title;
+        $todo->todo_content = $request->todo_content;
+        $todo->todo_importance = $request->todo_importance;
+
+        $todo->save();
+        session()->flash('udmess','Todo Updated Successfully!');
+        return redirect('/todo'); 
     }
 
     /**
@@ -91,6 +106,9 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $todo = todo::find($id);
+        $todo->delete();
+        session()->flash('delmess','Todo deleted Successfully!');
+        return redirect('/todo');
     }
 }
