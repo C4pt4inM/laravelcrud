@@ -54,7 +54,7 @@
     <div class="form-group">
       <div class="col-lg-10 col-lg-offset-2">
         <a href="/todo" class="btn btn-warning">Cancel</a>
-        <button type="submit" class="btn btn-success">Submit</button>
+        <button type="submit" class="btn btn-success">Update</button>
       </div>
     </div>
   </fieldset>
